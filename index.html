@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
@@ -15,17 +18,21 @@
         <img
           src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/2621168/yellow.jpg"
           alt="yellow"
-          class="yellow"
+          class="yellow anim"
+          data-delay="0s"
         />
-        <p>I have no clue what i'm doing LOL !</p>
+        <p class="anim" data-delay="0.5s">
+          I have no clue what i'm doing LOL !
+        </p>
         <img
           src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/2621168/squiggly.svg"
           alt="squig"
-          class="squig"
+          class="squig anim"
+          data-delay="0.7s"
         />
       </div>
       <div class="right">
-        <div>
+        <div class="anim">
           <h2>Get yellow</h2>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic
@@ -36,5 +43,23 @@
         </div>
       </div>
     </section>
+    <script>
+      const images = document.querySelectorAll(".anim");
+
+      observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.intersectionRatio > 0) {
+            entry.target.style.animation = `anim1 2s ${
+              entry.target.dataset.delay
+            } forwards ease-out`;
+          } else {
+            entry.target.style.animation = "none";
+          }
+        });
+      });
+      images.forEach(image => {
+        observer.observe(image);
+      });
+    </script>
   </body>
 </html>

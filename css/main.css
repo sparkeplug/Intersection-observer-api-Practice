@@ -41,6 +41,7 @@ section {
 
 .content .yellow {
   width: 50%;
+  opacity: 0;
 }
 
 .content .squig {
@@ -63,5 +64,35 @@ section {
 
 .content .right p {
   line-height: 1.6em;
+}
+
+.anim {
+  opacity: 0;
+}
+
+@-webkit-keyframes anim1 {
+  from {
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes anim1 {
+  from {
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
 }
 /*# sourceMappingURL=main.css.map */
